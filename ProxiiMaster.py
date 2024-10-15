@@ -1,4 +1,5 @@
 
+import os
 import requests
 from bs4 import BeautifulSoup
 import random
@@ -12,12 +13,7 @@ def display_banner():
     [92m
     [92m
     [92m
-    ██████╗ ██████╗  ██████╗ ██╗  ██╗██╗███╗   ███╗
-    ██╔══██╗██╔══██╗██╔═══██╗██║ ██╔╝██║████╗ ████║
-    ██████╔╝██████╔╝██║   ██║█████╔╝ ██║██╔████╔██║
-    ██╔═══╝ ██╔══██╗██║   ██║██╔═██╗ ██║██║╚██╔╝██║
-    ██║     ██║  ██║╚██████╔╝██║  ██╗██║██║ ╚═╝ ██║
-    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝     ╚═╝
+    [92mProxiiMaster[0m
     [0m
     [0m
     [0m
@@ -33,6 +29,8 @@ proxy_sources = [
 # Function to scrape proxies
 def scrape_proxies():
     proxies = []
+    if not os.path.exists('/home/user/proxiimaster-dev/proxy_list.txt'):
+        open('/home/user/proxiimaster-dev/proxy_list.txt', 'w').close()
     for source in proxy_sources:
         try:
             response = requests.get(source)
@@ -41,7 +39,7 @@ def scrape_proxies():
             print(colored(f"Fetched proxies from {source}", 'green'))
         except requests.RequestException as e:
             print(colored(f"Error fetching proxies from {source}: {e}", 'red'))
-    with open('/home/user/proxiimaster-dev/proxy_list.txt', 'w') as f:
+    with open('/home/user/proxiimaster-dev/proxy_list.txt', 'a') as f:
         for proxy in proxies:
             f.write(f"{proxy}\n")
     print(colored(f"Scraped {len(proxies)} proxies.", 'blue'))
