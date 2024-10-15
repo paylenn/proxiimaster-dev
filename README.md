@@ -1,53 +1,62 @@
 
 # ProxiiMaster
 
-ProxiiMaster is a proxy management tool that allows you to scrape, check, and get working proxies.
+![ProxiiMaster Banner](https://via.placeholder.com/728x90.png?text=ProxiiMaster)
+
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/paylenn/proxiimaster-dev/actions)
+[![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/paylenn/proxiimaster-dev/blob/main/LICENSE)
+
+ProxiiMaster is a powerful proxy management tool that allows you to scrape, check, and retrieve working proxies efficiently.
+
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Display Banner](#display-banner)
+  - [Scrape Proxies](#scrape-proxies)
+  - [Check Proxies](#check-proxies)
+  - [Get Working Proxies](#get-working-proxies)
+- [License](#license)
+
+## Features
+- 🚀 **Scrape Proxies**: Scrape proxies from multiple sources.
+- ✅ **Check Proxies**: Check the validity of proxies.
+- 📋 **Retrieve Proxies**: Get a list of working proxies.
 
 ## Installation
-
-1. Clone the repository:
-    ```bash
-    git clone <repository_url>
-    cd <repository_directory>
-    ```
-
-2. Install the required dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
+To install the required dependencies, run:
+\`\`\`bash
+pip install -r requirements.txt
+\`\`\`
 
 ## Usage
+ProxiiMaster provides a command-line interface (CLI) for managing proxies.
+
+### Display Banner
+\`\`\`bash
+python3 ProxiiMaster.py
+\`\`\`
 
 ### Scrape Proxies
+\`\`\`bash
+python3 ProxiiMaster.py -S
+\`\`\`
 
-To scrape proxies and save them to `proxy_list.txt`:
-```bash
-python ProxiiMaster.py -S
-```
+### Check Proxies
+To check all proxies:
+\`\`\`bash
+python3 ProxiiMaster.py -C
+\`\`\`
 
-### Check Proxy Validity
-
-To verify the gathered proxies and remove invalid ones:
-```bash
-python ProxiiMaster.py -C
-```
+To check a specific number of proxies:
+\`\`\`bash
+python3 ProxiiMaster.py -C -N <number>
+\`\`\`
 
 ### Get Working Proxies
+\`\`\`bash
+python3 ProxiiMaster.py -G
+\`\`\`
 
-To output 4 working proxies:
-```bash
-python ProxiiMaster.py -G
-```
-
-### Run All Commands
-
-To run all the above commands in sequence:
-```bash
-python ProxiiMaster.py -S -C -G
-```
-
-## Requirements
-
-- requests
-- beautifulsoup4
-- proxy-checker
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
