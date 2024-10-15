@@ -2,6 +2,7 @@
 # ProxiiMaster
 
 ![ProxiiMaster Banner](https://via.placeholder.com/728x90.png?text=ProxiiMaster)
+![Enhanced ProxiiMaster](https://via.placeholder.com/728x90.png?text=Enhanced+ProxiiMaster)
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/paylenn/proxiimaster-dev/actions)
 [![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/paylenn/proxiimaster-dev/blob/main/LICENSE)
