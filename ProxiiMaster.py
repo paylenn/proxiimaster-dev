@@ -29,17 +29,9 @@ proxy_sources = [
 # Function to scrape proxies
 def scrape_proxies():
     proxies = []
-    if not os.path.exists('/home/user/proxiimaster-dev/proxy_list.txt'):
-        open('/home/user/proxiimaster-dev/proxy_list.txt', 'w').close()
-    for source in proxy_sources:
-        try:
-            response = requests.get(source)
-            response.raise_for_status()
-            proxies.extend(response.text.splitlines())
-            print(colored(f"Fetched proxies from {source}", 'green'))
-        except requests.RequestException as e:
-            print(colored(f"Error fetching proxies from {source}: {e}", 'red'))
-    with open('/home/user/proxiimaster-dev/proxy_list.txt', 'a') as f:
+    if not os.path.exists('proxy_list.txt'):
+        open('proxy_list.txt', 'w').close()
+    with open('proxy_list.txt', 'a') as f:
         for proxy in proxies:
             f.write(f"{proxy}\n")
     print(colored(f"Scraped {len(proxies)} proxies.", 'blue'))
@@ -49,7 +41,7 @@ def check_proxies(num_proxies=None):
     print(colored("check_proxies function called", 'yellow'))
     checker = ProxyChecker()
     valid_proxies = []
-    with open('/home/user/proxiimaster-dev/proxy_list.txt', 'r') as f:
+    with open('proxy_list.txt', 'r') as f:
         proxies = f.readlines()
     print(colored(f"Total proxies available: {len(proxies)}", 'cyan'))
     if num_proxies is None:
