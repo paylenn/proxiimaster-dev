@@ -27,11 +27,14 @@ def check_proxies():
     valid_proxies = []
     with open('proxy_list.txt', 'r') as f:
         proxies = f.readlines()
-    for proxy in proxies:
+    for proxy in proxies[:10]:  # Limit to 10 proxies for testing
         proxy = proxy.strip()
-        result = checker.check_proxy(proxy)
-        if result and result['timeout'] < 2000:
-            valid_proxies.append(proxy)
+        try:
+            result = checker.check_proxy(proxy)
+            if result and result['timeout'] < 2000:
+                valid_proxies.append(proxy)
+        except Exception as e:
+            print(f"Error checking proxy {proxy}: {e}")
     with open('proxy_list.txt', 'w') as f:
         for proxy in valid_proxies:
             f.write(f"{proxy}\n")
